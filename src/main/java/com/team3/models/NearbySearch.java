@@ -1,9 +1,10 @@
 package com.team3.models;
 
 public class NearbySearch {
+
     private Localisation localisation;
     private double radius;
-    private String placeId;
+    private String typePlace;
 
     public Localisation getLocalisation() {
         return localisation;
@@ -21,22 +22,21 @@ public class NearbySearch {
         this.radius = radius;
     }
 
-    public String getPlaceId() {
-        return placeId;
+    public String getTypePlace() {
+        return typePlace;
     }
 
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
+    public void setTypePlace(String typePlace) {
+        this.typePlace = typePlace;
     }
 
     public NearbySearch() {
     }
 
-    public NearbySearch(Localisation localisation, double radius, String placeId) {
+    public NearbySearch(Localisation localisation, double radius, String typePlace) {
         this.localisation = localisation;
         this.radius = radius;
-        this.placeId = placeId;
+        this.typePlace = typePlace;
     }
-    
-    
+
 }
