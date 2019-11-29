@@ -23,4 +23,10 @@ public class ListResultsNearbySearch {
        }
        return null;
    }
+
+    public void printList() {
+        for(Place p : listResultsNearbySearch) {
+            System.out.println(p.toString());
+        }
+    }
 }

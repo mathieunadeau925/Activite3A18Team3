@@ -52,7 +52,7 @@ public class Place {
 
     @Override
     public String toString() {
-        return "Place{" + "place_id=" + place_id + ", name=" + name + ", vicinity=" + vicinity + ", listReviews=" + listReviews + '}';
+        return "Place{" + "place_id=" + place_id + ", name=" + name + ", vicinity=" + vicinity;
     }
     
     
