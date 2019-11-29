@@ -1,5 +1,7 @@
 package com.team3.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.team3.models.ListPlaces;
 import com.team3.models.Localisation;
 import com.team3.models.NearbySearch;
@@ -28,12 +30,16 @@ public class AppCtr {
         
         for(int i = 0; i < listPlaces.getListPlaces().size(); i++) {
             Place p = listPlaces.getListPlaces().get(i);
-            System.out.println(p.getPlace_id());
             ArrayList<Review> listReviews = UtilPlaceDetails.getPlaceDetails(p.getPlace_id());
             p.setListReviews(listReviews);
         }
         
-        listPlaces.afficherListe();
+        final GsonBuilder builder = new GsonBuilder();
+        final Gson gson = builder.setPrettyPrinting().create();
+        String jsonArray = gson.toJson(listPlaces);
+        
+        System.out.println(jsonArray);
+        
         
     }
 }

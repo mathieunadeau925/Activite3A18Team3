@@ -47,11 +47,13 @@ public class UtilPlaceDetails {
     private static void extractJsonArrayReviews(String response) {
         JSONObject result = JSONObject.fromObject(response);
         result = result.getJSONObject("result");
-        JSONArray reviews = result.getJSONArray("reviews");
-        for (int i = 0; i < reviews.size(); i++) {
-            JSONObject review = reviews.getJSONObject(i);
-            Review r = new Review(review.getInt("rating"), review.getString("text"));
-            listReview.add(r);
+        if (result.containsKey("reviews")) {
+            JSONArray reviews = result.getJSONArray("reviews");
+            for (int i = 0; i < reviews.size(); i++) {
+                JSONObject review = reviews.getJSONObject(i);
+                Review r = new Review(review.getInt("rating"), review.getString("text"));
+                listReview.add(r);
+            }
         }
     }
 }
