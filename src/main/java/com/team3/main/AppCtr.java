@@ -19,7 +19,7 @@ public class AppCtr {
     public static void main(String[] args) {
        String placeID = "ChIJm9yJF0wayUwRO2PxDSXpH0Q";
        
-        UtilPlaceDetails.
+        //UtilPlaceDetails.
         
     }
 }
