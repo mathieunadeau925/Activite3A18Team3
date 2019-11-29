@@ -29,11 +29,6 @@ public class UtilJsonBuilder {
             ArrayList<Review> listReviews = UtilPlaceDetails.getPlaceDetails(p.getPlace_id());
             p.setListReviews(listReviews);
         }
-
-//        final GsonBuilder builder = new GsonBuilder();
-//        final Gson gson = builder.setPrettyPrinting().create();
-//        String jsonArray = gson.toJson(listPlaces);
-//        JSONArray result = JSONArray.fromObject(jsonArray);
         JSONArray result = creerJsonFile(listPlaces);
         return result;
     }
@@ -54,6 +49,7 @@ public class UtilJsonBuilder {
                     reviews.add(r);
                 }
             }
+            res.accumulate("reviews", reviews);
             results.add(res);
         }
         return results;
