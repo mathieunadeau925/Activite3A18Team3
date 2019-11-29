@@ -1,6 +1,6 @@
 package com.team3.utilTest;
 
-import com.team3.models.ListResultsNearbySearch;
+import com.team3.models.ListPlaces;
 import com.team3.models.Localisation;
 import com.team3.models.NearbySearch;
 import com.team3.util.UtilNearbySearch;
@@ -42,7 +42,7 @@ public class UtilNearbySearchTest {
         NearbySearch nbObTest = new NearbySearch();
         nbObTest.setLocalisation(loc);
         nbObTest.setRadius(1500);
-        ListResultsNearbySearch listResults = UtilNearbySearch.getNearbyPlaces(nbObTest);
+        ListPlaces listResults = UtilNearbySearch.getNearbyPlaces(nbObTest);
 
         listResults.printList();
     }
@@ -55,7 +55,7 @@ public class UtilNearbySearchTest {
         nbObTest.setRadius(1500);
         nbObTest.setTypePlace("food");
         
-        ListResultsNearbySearch listResults = UtilNearbySearch.getNearbyPlaces(nbObTest);
+        ListPlaces listResults = UtilNearbySearch.getNearbyPlaces(nbObTest);
 
         listResults.printList();
     }

@@ -1,7 +1,7 @@
 package com.team3.util;
 
 import com.team3.main.AppCtr;
-import com.team3.models.ListResultsNearbySearch;
+import com.team3.models.ListPlaces;
 import com.team3.models.Localisation;
 import com.team3.models.NearbySearch;
 import gsonModels.Place;
@@ -21,9 +21,9 @@ import org.apache.http.util.EntityUtils;
 
 public class UtilNearbySearch {
 
-    private static ListResultsNearbySearch listResults = new ListResultsNearbySearch();
+    private static ListPlaces listResults = new ListPlaces();
 
-    public static ListResultsNearbySearch getNearbyPlaces(NearbySearch nearbySearchAttributes) {
+    public static ListPlaces getNearbyPlaces(NearbySearch nearbySearchAttributes) {
         HttpClient client = HttpClientBuilder.create().build();
         URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps."
                 + "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
@@ -43,7 +43,7 @@ public class UtilNearbySearch {
         return listResults;
     }
     
-    public static ListResultsNearbySearch getNearbyPlacesWithType(NearbySearch nearbySearchAttributes) {
+    public static ListPlaces getNearbyPlacesWithType(NearbySearch nearbySearchAttributes) {
         HttpClient client = HttpClientBuilder.create().build();
         URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps."
                 + "googleapis.com").setPath("/maps/api/place/nearbysearch/json");
