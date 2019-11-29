@@ -12,37 +12,14 @@ import com.google.gson.GsonBuilder;
 import com.team3.util.UtilPlaceDetails;
 import gsonModels.Place;
 import gsonModels.Review;
+import gsonModels.UtilGsonConverter;
 import java.util.ArrayList;
 
 public class AppCtr {
 
     public static void main(String[] args) {
-        ListPlaces listPlaces;
-        String latitude = "45.52048";
-        String longitude = "-73.5686184";
-        int radius = 1500;
-        String type = "food";
-
-        Localisation loc = new Localisation(latitude, longitude);
-        NearbySearch nearbySearchAttributes = new NearbySearch();
-        nearbySearchAttributes.setLocalisation(loc);
-        nearbySearchAttributes.setRadius(radius);
-        nearbySearchAttributes.setTypePlace(type);
         
-        listPlaces = UtilNearbySearch.getNearbyPlacesWithType(nearbySearchAttributes);
-        
-        for(int i = 0; i < listPlaces.getListPlaces().size(); i++) {
-            Place p = listPlaces.getListPlaces().get(i);
-            ArrayList<Review> listReviews = UtilPlaceDetails.getPlaceDetails(p.getPlace_id());
-            p.setListReviews(listReviews);
-        }
-        
-        final GsonBuilder builder = new GsonBuilder();
-        final Gson gson = builder.setPrettyPrinting().create();
-        String jsonArray = gson.toJson(listPlaces);
-        
-        System.out.println(jsonArray);
-        
+        System.out.println(UtilGsonConverter.traiterFichierGson("45.52048", "-73.5686184", 1500, "food"));
         
     }
 }

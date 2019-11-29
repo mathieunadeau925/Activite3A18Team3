@@ -3,6 +3,9 @@ package gsonModels;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.team3.models.ListPlaces;
+import com.team3.models.Localisation;
+import com.team3.models.NearbySearch;
+import com.team3.util.UtilNearbySearch;
 import com.team3.util.UtilPlaceDetails;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,28 +13,28 @@ import net.sf.json.JSONArray;
 
 public class UtilGsonConverter {
 
-    public static JSONArray traiterFichierGson(ListPlaces listPlace) {
-        JSONArray isValide = null;
-
+    public static JSONArray traiterFichierGson(String latitude,String longitude, int radius,String type) {
+        ListPlaces listPlaces;
+        
+        Localisation loc = new Localisation(latitude, longitude);
+        NearbySearch nearbySearchAttributes = new NearbySearch();
+        nearbySearchAttributes.setLocalisation(loc);
+        nearbySearchAttributes.setRadius(radius);
+        nearbySearchAttributes.setTypePlace(type);
+        
+        listPlaces = UtilNearbySearch.getNearbyPlacesWithType(nearbySearchAttributes);
+        
+        for(int i = 0; i < listPlaces.getListPlaces().size(); i++) {
+            Place p = listPlaces.getListPlaces().get(i);
+            ArrayList<Review> listReviews = UtilPlaceDetails.getPlaceDetails(p.getPlace_id());
+            p.setListReviews(listReviews);
+        }
+        
         final GsonBuilder builder = new GsonBuilder();
         final Gson gson = builder.setPrettyPrinting().create();
-
-        String placeID = "ChIJm9yJF0wayUwRO2PxDSXpH0Q";
-        ArrayList<Review> l = UtilPlaceDetails.getPlaceDetails(placeID);
-//        for (Review review : l) {
-//            System.out.println(review);
-//        }
-
-        String jsonArrayReviews = gson.toJson(l);
-
-        System.out.println(jsonArrayReviews.toString());
-
-        return isValide;
+        String jsonArray = gson.toJson(listPlaces);
+        JSONArray result = JSONArray.fromObject(jsonArray);
+        
+        return result;
     }
-
-    public static Place creerGsonSortie() {
-        Place place = new Place();
-        return place;
-    }
-
 }
