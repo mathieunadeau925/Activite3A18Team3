@@ -2,8 +2,6 @@ package com.team3.util;
 
 import com.team3.models.Review;
 import com.team3.models.Place;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.team3.models.ListPlaces;
 import com.team3.models.Localisation;
 import com.team3.models.NearbySearch;

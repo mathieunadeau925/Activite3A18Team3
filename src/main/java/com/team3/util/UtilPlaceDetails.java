@@ -1,9 +1,7 @@
 package com.team3.util;
 
 import com.team3.models.Review;
-import com.google.gson.JsonObject;
 import com.team3.main.AppCtr;
-import com.team3.models.PlaceDetails;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
