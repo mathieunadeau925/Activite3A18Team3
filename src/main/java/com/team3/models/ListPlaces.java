@@ -1,6 +1,7 @@
 package com.team3.models;
 
 import gsonModels.Place;
+import gsonModels.Review;
 import java.util.ArrayList;
 
 public class ListPlaces {
@@ -27,6 +28,21 @@ public class ListPlaces {
     public void printList() {
         for(Place p : listPlaces) {
             System.out.println(p.toString());
+        }
+    }
+    
+    public ArrayList<Place> getListPlaces() {
+        return listPlaces;
+    }
+    
+    public void afficherListe() {
+        for (Place p : listPlaces) {
+            System.out.print(p.getPlace_id() + ", ");
+            System.out.print(p.getName()+ ", ");
+            System.out.print(p.getVicinity()+ ", ");
+            for (Review r : p.getListReviews()) {
+                System.out.print(r.getRating() + ", " + r.getText() );
+            }
         }
     }
 }

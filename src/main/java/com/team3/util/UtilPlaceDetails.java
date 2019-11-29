@@ -21,17 +21,17 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 public class UtilPlaceDetails {
-    
-    private static ArrayList<Review> listReview ;
-    
-    public static ArrayList<Review> getPlaceDetails(String placeID){
-        
+
+    private static ArrayList<Review> listReview;
+
+    public static ArrayList<Review> getPlaceDetails(String placeID) {
+
         listReview = new ArrayList<>();
         HttpClient client = HttpClientBuilder.create().build();
         URIBuilder builder = new URIBuilder().setScheme("https").setHost("maps.googleapis.com").setPath("/maps/api/place/details/json");
         builder.addParameter("placeid", placeID);
         builder.addParameter("key", GoogleKey.getGOOGLE_API_KEY());
-        
+
         try {
 
             HttpUriRequest request = new HttpGet(builder.build());
@@ -40,7 +40,7 @@ public class UtilPlaceDetails {
             extractJsonArrayReviews(response);
         } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(AppCtr.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
         return listReview;
     }
 
