@@ -1,5 +1,6 @@
 package com.team3.main;
 
+import com.team3.util.GoogleKey;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -15,11 +16,11 @@ import org.apache.http.util.EntityUtils;
 public class AppCtr {
 
     public static void main(String[] args) {
-        String GOOGLE_API_KEY = "AIzaSyD7a_uULBq-ZHnWVyx8m52fK7Sa1CCAqko";
+        
         long epoch = 1574970764;
         double lat = 45;
         double lon = -73;
-        makeCall(lat, lon, epoch, GOOGLE_API_KEY);
+        makeCall(lat, lon, epoch, GoogleKey.getGOOGLE_API_KEY());
     }
 
     private static void makeCall(double lat, double lon, long epoch, String GOOGLE_API_KEY) {
