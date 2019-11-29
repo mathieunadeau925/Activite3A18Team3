@@ -1,14 +1,20 @@
 package gsonModels;
 
+import java.io.IOException;
+import net.sf.json.JSONArray;
+
 public class UtilGsonConverter {
 
-    public static void toJson() {
+    public static boolean traiterFichierGson(String fichierEntree,
+            String fichierSortie) throws IOException {
+        boolean isValide = false;
+
+        return isValide;
     }
 
-    public static Object createJson(Place repere, Review note) {
-        Object obj = new Object();
-
-        return obj;
+    public static Place creerGsonSortie() {
+        Place place = new Place();
+        return place;
     }
 
 }
