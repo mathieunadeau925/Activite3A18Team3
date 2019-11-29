@@ -1,7 +1,5 @@
 package com.team3.models;
 
-import gsonModels.Place;
-import gsonModels.Review;
 import java.util.ArrayList;
 
 public class ListPlaces {

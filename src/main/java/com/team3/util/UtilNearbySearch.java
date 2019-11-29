@@ -1,10 +1,10 @@
 package com.team3.util;
 
+import com.team3.models.Place;
 import com.team3.main.AppCtr;
 import com.team3.models.ListPlaces;
 import com.team3.models.Localisation;
 import com.team3.models.NearbySearch;
-import gsonModels.Place;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;

@@ -1,4 +1,4 @@
-package gsonModels;
+package com.team3.models;
 
 
 public class Review {
