@@ -5,7 +5,7 @@
  */
 package com.team3.util;
 
-import gsonModels.Review;
+import com.team3.models.Review;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,21 +16,39 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 1995159
+ * @author aziz
  */
 public class UtilPlaceDetailsTest {
     
     public UtilPlaceDetailsTest() {
     }
     
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of getPlaceDetails method, of class UtilPlaceDetails.
+     */
     @Test
     public void testGetPlaceDetails() {
         System.out.println("getPlaceDetails");
-        String placeID = "";
-        UtilPlaceDetails instance = new UtilPlaceDetails();
-        String expResult = "";
-        //ArrayList<Review> result = instance.getPlaceDetails(placeID);
-        //assertEquals(expResult, result);
+        String placeID = "ChIJDbdkHFQayUwR7-8fITgxTmU";
+        ArrayList<Review> expResult = UtilPlaceDetails.getPlaceDetails(placeID);
+        ArrayList<Review> result = UtilPlaceDetails.getPlaceDetails(placeID);
+        assertEquals(expResult, result);
     }
     
 }
