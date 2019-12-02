@@ -38,5 +38,4 @@ public class NearbySearch {
         this.radius = radius;
         this.typePlace = typePlace;
     }
-
 }
