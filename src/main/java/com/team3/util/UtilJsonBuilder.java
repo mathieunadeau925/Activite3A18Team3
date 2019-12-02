@@ -1,5 +1,7 @@
 package com.team3.util;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.team3.models.Review;
 import com.team3.models.Place;
 import com.team3.models.ListPlaces;
@@ -27,8 +29,15 @@ public class UtilJsonBuilder {
             ArrayList<Review> listReviews = UtilPlaceDetails.getPlaceDetails(p.getPlace_id());
             p.setListReviews(listReviews);
         }
-        JSONArray result = creerJsonFile(listPlaces);
-        return result;
+        //JSONArray result = creerJsonFile(listPlaces);
+        
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.setPrettyPrinting().create();
+        String listPlacesObjet = gson.toJson(listPlaces);
+        JSONObject obj = JSONObject.fromObject(listPlacesObjet);
+        JSONArray listPlacesArray = obj.getJSONArray("listPlaces");
+        
+        return listPlacesArray;
     }
 
     public static JSONArray creerJsonFile(ListPlaces listPlaces) {
@@ -52,4 +61,13 @@ public class UtilJsonBuilder {
         }
         return results;
     }
+    
+    
+    public static void afficherMonJSONArray(JSONArray jsArray) {
+        final GsonBuilder builder = new GsonBuilder();
+        final Gson gson = builder.setPrettyPrinting().create();
+        String jsonArray = gson.toJson(jsArray);
+        System.out.println(jsonArray);
+    }
+    
 }
